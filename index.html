@@ -23,9 +23,9 @@
       --wrap-max: 720px;
       --wrap-vw: 92vw;
 
-      --side-w: 474px;   /* your sigil image width */
-      --side-gap: 20px;  /* distance from links/content */
-      --side-h: 1080px;  /* your sigil image height */
+      --side-w: 474px;
+      --side-gap: 30px;  /* distance from links/content */
+      --side-h: 1080px;
     }
 
     *{ box-sizing:border-box; }
@@ -40,7 +40,6 @@
       background-attachment: fixed;
     }
 
-    /* Side sigils */
     .side{
       position: fixed;
       top: 0;
@@ -68,7 +67,6 @@
       .side{ display:none; }
     }
 
-    /* Content container */
     .wrap{
       width: min(var(--wrap-max), var(--wrap-vw));
       margin: 0 auto;
@@ -263,4 +261,5 @@
   </script>
 </body>
 </html>
+
 
