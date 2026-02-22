@@ -4,16 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kudorin</title>
+
   <style>
     :root{
       --bg-top: #000000;
+      --bg-mid: #050007;
       --bg-bottom: #12001f;
+
       --panel: rgba(255,255,255,.06);
       --border: rgba(255,255,255,.10);
+
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.70);
+
       --shadow: 0 18px 45px rgba(0,0,0,.45);
       --radius: 18px;
+
+      --wrap-max: 720px;
+      --wrap-vw: 92vw;
+
+      --side-w: 474px;   /* your sigil image width */
+      --side-gap: 20px;  /* distance from links/content */
+      --side-h: 1080px;  /* your sigil image height */
     }
 
     *{ box-sizing:border-box; }
@@ -24,15 +36,45 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color: var(--text);
       min-height: 100vh;
-
-      background: linear-gradient(180deg, var(--bg-top) 0%, #050007 35%, var(--bg-bottom) 100%);
+      background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 35%, var(--bg-bottom) 100%);
       background-attachment: fixed;
     }
 
+    /* Side sigils */
+    .side{
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: var(--side-w);
+      background: url("side_sigil.png") center / var(--side-w) var(--side-h) no-repeat;
+      opacity: .55;
+      filter: brightness(1.1);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .side-left{
+      left: calc(50% - (min(var(--wrap-max), var(--wrap-vw)) / 2) - var(--side-gap) - var(--side-w));
+      transform: scaleX(-1);
+      transform-origin: center;
+    }
+
+    .side-right{
+      right: calc(50% - (min(var(--wrap-max), var(--wrap-vw)) / 2) - var(--side-gap) - var(--side-w));
+    }
+
+    /* Hide side images on small screens */
+    @media (max-width: 700px){
+      .side{ display:none; }
+    }
+
+    /* Content container */
     .wrap{
-      width:min(720px, 92vw);
+      width: min(var(--wrap-max), var(--wrap-vw));
       margin: 0 auto;
       padding: 46px 0 28px;
+      position: relative;
+      z-index: 1;
     }
 
     .card{
@@ -82,27 +124,14 @@
       gap: 12px;
     }
 
-.section-title{
-  margin: 18px 6px 10px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: .2px;
-  color: rgba(255,255,255,.82);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap: 12px;
-}
-
-.section-title{
-  margin: 18px 6px 10px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: .2px;
-  color: rgba(255,255,255,.82);
-  text-align: center;
-}
+    .section-title{
+      margin: 18px 6px 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: .2px;
+      color: rgba(255,255,255,.82);
+      text-align:center;
+    }
 
     .section-links{
       display:grid;
@@ -112,7 +141,8 @@
     .divider{
       border: 0;
       height: 1px;
-      margin: 10px 6px 10px;
+      width: min(520px, 100%);
+      margin: 14px auto 14px;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
     }
 
@@ -160,43 +190,13 @@
       margin-top: 18px;
       padding: 10px 0 0;
     }
-    .side{
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 474px;
-
-  background: url("side_sigil.png") center / 474px 1080px no-repeat;
-
-  opacity: .55;
-  filter: brightness(1.1);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.side-left{
-  left: 0;
-  transform: scaleX(-1);
-  transform-origin: center;
-}
-
-.side-right{
-  right: 0;
-}
-
-.wrap{
-  position: relative;
-  z-index: 1;
-}
-
-@media (max-width: 700px){
-  .side{ display: none; }
-}
   </style>
 </head>
+
 <body>
   <div class="side side-left"></div>
-<div class="side side-right"></div>
+  <div class="side side-right"></div>
+
   <main class="wrap">
     <header class="card">
       <img class="avatar" src="avatar.png" alt="avatar" />
@@ -207,6 +207,7 @@
 
     <section class="links">
       <h2 class="section-title">Music</h2>
+
       <div class="section-links">
         <a class="btn" href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
           <img class="icon" src="spotify.png" alt="Spotify" />
@@ -230,27 +231,26 @@
         <img class="icon" src="instagram.png" alt="Instagram" />
         <span>Instagram</span>
       </a>
-      
+
       <a class="btn" href="https://www.youtube.com/@Kudorinn" target="_blank" rel="noopener noreferrer">
-        <img class="icon" src="youtube.png" alt="youtube" />
+        <img class="icon" src="youtube.png" alt="YouTube" />
         <span>YouTube</span>
       </a>
-      
+
       <a class="btn" href="https://bsky.app/profile/kudorinn.bsky.social" target="_blank" rel="noopener noreferrer">
-        <img class="icon" src="bluesky.png" alt="bluesky" />
+        <img class="icon" src="bluesky.png" alt="Bluesky" />
         <span>Bluesky</span>
       </a>
 
       <a class="btn" href="https://www.tiktok.com/@kudorinn" target="_blank" rel="noopener noreferrer">
-        <img class="icon" src="tiktok.png" alt="tiktok" />
+        <img class="icon" src="tiktok.png" alt="TikTok" />
         <span>TikTok</span>
       </a>
-      
+
       <a class="btn" href="https://x.com/Kudorinn" target="_blank" rel="noopener noreferrer">
-        <img class="icon" src="twitter.png" alt="twitter" />
+        <img class="icon" src="twitter.png" alt="Twitter (X)" />
         <span>Twitter (X)</span>
-        </a>
-      
+      </a>
     </section>
 
     <footer class="footer">
@@ -263,6 +263,3 @@
   </script>
 </body>
 </html>
-
-
-
