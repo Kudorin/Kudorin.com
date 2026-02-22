@@ -168,13 +168,13 @@ body{
 }
 
 .side-left{
-  left: 0;
+  left: calc(50% - (min(720px, 92vw) / 2) - 20px - 474px);
   transform: scaleX(-1);
   transform-origin: center;
 }
 
 .side-right{
-  right: 0;
+  right: calc(50% - (min(720px, 92vw) / 2) - 20px - 474px);
 }
 
 .wrap{
@@ -186,3 +186,4 @@ body{
 @media (max-width: 1100px){
   .side{ display: none; }
 }
+
