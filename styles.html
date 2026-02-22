@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kudorin</title>
+  <style>
+    :root{
+      --bg-top: #000000;
+      --bg-bottom: #12001f;
+      --panel: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --shadow: 0 18px 45px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      min-height: 100vh;
+
+      background: linear-gradient(180deg, var(--bg-top) 0%, #050007 35%, var(--bg-bottom) 100%);
+      background-attachment: fixed;
+    }
+
+    .wrap{
+      width:min(720px, 92vw);
+      margin: 0 auto;
+      padding: 46px 0 28px;
+    }
+
+    .card{
+      text-align:center;
+      padding: 26px 20px 18px;
+      border-radius: var(--radius);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .avatar{
+      width:92px;
+      height:92px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      display:block;
+      margin: 0 auto 14px;
+    }
+
+    .title{
+      margin: 0;
+      font-size: 1.65rem;
+      letter-spacing: .2px;
+    }
+
+    .jptext{
+      margin: 6px 0 0;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,.55);
+      letter-spacing: .15px;
+    }
+
+    .subtitle{
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.4;
+      font-size: 1rem;
+    }
+
+    .links{
+      margin-top: 16px;
+      display:grid;
+      gap: 12px;
+    }
+
+    .section-title{
+      margin: 18px 6px 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: .2px;
+      color: rgba(255,255,255,.82);
+    }
+
+    .section-links{
+      display:grid;
+      gap: 12px;
+    }
+
+    .divider{
+      border: 0;
+      height: 1px;
+      margin: 10px 6px 10px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+    }
+
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      height: 54px;
+      padding: 0 18px;
+      border-radius: 16px;
+      text-decoration:none;
+      color: var(--text);
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 24px rgba(0,0,0,.22);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.11);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .btn:active{
+      transform: translateY(0px) scale(.995);
+    }
+
+    .btn:focus-visible{
+      outline: 3px solid rgba(160,90,255,.35);
+      outline-offset: 3px;
+    }
+
+    .icon{
+      width: 18px;
+      height: 18px;
+      display:block;
+    }
+
+    .footer{
+      text-align:center;
+      color: rgba(255,255,255,.55);
+      margin-top: 18px;
+      padding: 10px 0 0;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="card">
+      <img class="avatar" src="avatar.png" alt="avatar" />
+      <h1 class="title">Kudorin</h1>
+      <p class="jptext">くどりん</p>
+      <p class="subtitle">Life is short, dont make it shorter.</p>
+    </header>
+
+    <section class="links">
+      <h2 class="section-title">Music</h2>
+      <div class="section-links">
+        <a class="btn" href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
+          <img class="icon" src="spotify.png" alt="Spotify" />
+          <span>Spotify</span>
+        </a>
+
+        <a class="btn" href="https://music.apple.com/" target="_blank" rel="noopener noreferrer">
+          <img class="icon" src="applemusic.png" alt="Apple Music" />
+          <span>Apple Music</span>
+        </a>
+
+        <a class="btn" href="https://soundcloud.com/kudorin" target="_blank" rel="noopener noreferrer">
+          <img class="icon" src="soundcloud.png" alt="SoundCloud" />
+          <span>SoundCloud</span>
+        </a>
+      </div>
+
+      <hr class="divider" />
+
+      <a class="btn" href="https://instagram.com/_kudorin" target="_blank" rel="noopener noreferrer">
+        <img class="icon" src="instagram.png" alt="Instagram" />
+        <span>Instagram</span>
+      </a>
+      
+      <a class="btn" href="https://www.youtube.com/@Kudorinn" target="_blank" rel="noopener noreferrer">
+        <img class="icon" src="youtube.png" alt="youtube" />
+        <span>YouTube</span>
+      </a>
+      
+      <a class="btn" href="https://bsky.app/profile/kudorinn.bsky.social" target="_blank" rel="noopener noreferrer">
+        <img class="icon" src="bluesky.png" alt="bluesky" />
+        <span>Bluesky</span>
+      </a>
+
+      <a class="btn" href="https://www.tiktok.com/@kudorinn" target="_blank" rel="noopener noreferrer">
+        <img class="icon" src="tiktok.png" alt="tiktok" />
+        <span>TikTok</span>
+      </a>
+      
+      <a class="btn" href="https://x.com/Kudorinn" target="_blank" rel="noopener noreferrer">
+        <img class="icon" src="twitter.png" alt="twitter" />
+        <span>Twitter (X)</span>
+        </a>
+      
+    </section>
+
+    <footer class="footer">
+      <small>© <span id="year"></span> Kudorin</small>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
